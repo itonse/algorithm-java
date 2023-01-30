@@ -4,14 +4,11 @@ class Solution {
         
         if (price >= 500000) {
            answer = (int)(price - price * 0.2); 
-        }
-        else if (price >= 300000) {
+        } else if (price >= 300000) {
             answer = (int)(price - price * 0.1);
-        }
-        else if (price >= 100000) {
+        } else if (price >= 100000) {
             answer = (int)(price - price * 0.05);
-        }
-        else {
+        } else {
             answer = price;
         }
         
