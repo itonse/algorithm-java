@@ -1,8 +1,10 @@
 class Solution {
     public String solution(String my_string) {
-        StringBuffer sb = new StringBuffer(my_string);
+        String answer = "";
+        StringBuilder sb = new StringBuilder();
         
-        String answer = sb.reverse().toString();
+        sb.append(my_string);
+        answer = sb.reverse().toString();
         
         return answer;
     }
