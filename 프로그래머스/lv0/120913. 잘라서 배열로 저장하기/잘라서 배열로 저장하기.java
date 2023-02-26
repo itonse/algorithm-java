@@ -1,6 +1,6 @@
 class Solution {
     public String[] solution(String my_str, int n) {
-        String[] answer = new String[(int) Math.round(my_str.length() / (float) n + 0.49)];
+        String[] answer = new String[(int) Math.round(my_str.length() / (float) n + 0.4999)];
         int cnt = 0;
         int idx = 0;
         
