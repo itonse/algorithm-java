@@ -3,9 +3,9 @@ class Solution {
         int answer = 0;
         String[] str = my_string.replaceAll("[A-z]", " ").split(" ");
 
-        for(int i = 0; i < str.length; i++) {
-            if(!str[i].equals("")) {
-                answer += Integer.parseInt(str[i]);
+        for(String s: str) {
+            if(!s.equals("")) {
+                answer += Integer.parseInt(s);
             }
         }
         
