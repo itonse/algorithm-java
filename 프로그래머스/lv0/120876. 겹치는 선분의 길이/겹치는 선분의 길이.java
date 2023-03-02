@@ -6,8 +6,8 @@ class Solution {
         int answer = 0;
 
         for(int i = 0; i < lines.length; i++) {
-            start = Math.min(lines[i][0], lines[i][1]);
-            end = lines[i][0] < lines[i][1] ? lines[i][1] : lines[i][0];
+            start = lines[i][0];
+            end = lines[i][1];
 
             for(int j = start; j < end; j++) {
                 cnt[j + 100]++;
