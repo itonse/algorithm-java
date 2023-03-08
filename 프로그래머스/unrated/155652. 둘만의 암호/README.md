@@ -1,10 +1,10 @@
 # [unrated] 둘만의 암호 - 155652 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/155652) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/155652?language=java) 
 
 ### 성능 요약
 
-메모리: 71.2 MB, 시간: 14.49 ms
+메모리: 78.1 MB, 시간: 9.92 ms
 
 ### 구분
 
