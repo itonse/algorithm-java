@@ -5,27 +5,20 @@ class Solution
     public int solution(String s)
     {
         int answer = 0;
-        Stack stack = new Stack<>();
-
-
-        stack.push(s.charAt(0));
-        int idx = 1;
+        Stack<Character>stack = new Stack<>();
+        
+        int idx = 0;
         while (idx < s.length()) {
-            if (!stack.isEmpty() && (char) stack.peek() == s.charAt(idx)) {
+            if (stack.size() == 0) {
+                stack.push(s.charAt(idx));
+            } else if ((char) stack.peek() == s.charAt(idx)) {
                 stack.pop();
             } else {
                 stack.push(s.charAt(idx));
             }
-
             idx++;
         }
 
-        if (stack.isEmpty()) {
-            answer = 1;
-        } else {
-            answer = 0;
-        }
-
-        return answer;
+        return stack.isEmpty() ? 1 : 0;
     }
 }
