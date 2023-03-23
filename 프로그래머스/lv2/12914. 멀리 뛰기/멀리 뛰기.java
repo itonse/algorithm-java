@@ -1,7 +1,7 @@
 class Solution {
     public long solution(int n) {
         long answer = 0;
-        long[] dp = new long[2001];
+        long[] dp = new long[n + 2];
 
         dp[1] = 1;
         dp[2] = 2;
