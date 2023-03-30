@@ -15,9 +15,7 @@ class Solution {
             }
             if (cntX == notX) {
                 answer++;
-                cntX = 0;
-                notX = 0;
-
+         
                 if (p == len - 1) {
                     break;
                 }
