@@ -13,11 +13,11 @@ class Solution {
                 for (int k = 0; k < 4; k++) {
                     if (j != k) {
                         dp[i][j] = Math.max(dp[i][j], dp[i-1][k] + land[i][j]);
-
-                        if (i == land.length - 1) {
-                            answer = Math.max(answer, dp[i][j]);
-                        }
                     }
+                }
+                
+                if (i == land.length - 1) {
+                    answer = Math.max(answer, dp[i][j]);
                 }
             }
         }
