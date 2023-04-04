@@ -14,31 +14,21 @@ class Solution {
         int ans2 = 0;
         int ans3 = 0;
 
-        int cnt1 = 0;
-        int cnt2 = 0;
-        int cnt3 = 0;
-
         for (int i = 0; i < answers.length; i++) {
-            if (answers[i] == num1[cnt1]) {
+            if (answers[i] == num1[i % num1.length]) {
                 ans1++;
             }
 
-            if (answers[i] == num2[cnt2]) {
+            if (answers[i] == num2[i % num2.length]) {
                 ans2++;
             }
 
-            if (answers[i] == num3[cnt3]) {
+            if (answers[i] == num3[i % num3.length]) {
                 ans3++;
             }
-
-            cnt1 = ++cnt1 % num1.length;
-            cnt2 = ++cnt2 % num2.length;
-            cnt3 = ++cnt3 % num3.length;
-
+            
             if (i == answers.length - 1) {
-                maxCnt = Math.max(maxCnt, ans1);
-                maxCnt = Math.max(maxCnt, ans2);
-                maxCnt = Math.max(maxCnt, ans3);
+                maxCnt = Math.max(ans1, Math.max(ans2, ans3));
             }
         }
 
