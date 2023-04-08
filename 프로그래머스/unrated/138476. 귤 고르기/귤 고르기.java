@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -10,18 +11,12 @@ class Solution {
             map.put(tangerine[i], map.getOrDefault(tangerine[i], 0) + 1);
         }
 
-        int[] arr = new int[map.size()];
-
-        int cnt = 0;
-        for (int key: map.keySet()) {
-            arr[cnt++] = map.get(key);
-        }
-
-        Arrays.sort(arr);
+        ArrayList<Integer> list = new ArrayList<>(map.keySet());
+        list.sort((o1, o2) -> map.get(o2) - map.get(o1));
 
         int diff = 0;
-        for (int i = arr.length - 1; i >= 0; i--) {
-            k -= arr[i];
+        for (Integer key: list) {
+            k -= map.get(key);
             diff++;
 
             if (k <= 0) {
