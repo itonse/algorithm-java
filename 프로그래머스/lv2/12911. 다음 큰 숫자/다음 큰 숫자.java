@@ -1,6 +1,6 @@
 class Solution {
     public int solution(int n) {
-        String s = Integer.toBinaryString(n);  // "1001110"
+        String s = Integer.toBinaryString(n); 
 
         int cnt1 = 0;
         for (int i = 0; i < s.length(); i++) {
