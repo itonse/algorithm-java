@@ -1,30 +1,17 @@
-import java.util.*;
-
 class Solution {
     public String solution(String s) {
+        String answer = "";
         
-        StringBuilder sb = new StringBuilder();
-        String[] arr = s.split(" "); 
+        String[] srr = s.toLowerCase().split("");
         
+        boolean isFirst = true;
         
-        for (String tmp : arr){
-            if (!"".equals(sb.toString())){
-                sb.append(" ");
-            }
-            
-            if (tmp.length() > 0){
-                sb.append(tmp.substring(0,1).toUpperCase()); 
-                
-                if (tmp.length() > 1){
-                    sb.append(tmp.substring(1).toLowerCase());
-                }
-            }
+        for(int i = 0; i < srr.length; i++) {  
+            answer += isFirst ? srr[i].toUpperCase() : srr[i];
+
+            isFirst = srr[i].equals(" ") ? true : false;            
         }
         
-        if (s.length() > sb.toString().length()){
-            sb.append(" ");
-        }
-        
-        return sb.toString();
+        return answer;
     }
 }
