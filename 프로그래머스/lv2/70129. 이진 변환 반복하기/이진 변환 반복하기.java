@@ -1,20 +1,17 @@
 class Solution {
     public int[] solution(String s) {
-        int[] answer = new int[2];
-        int cnt = 0;
-        int sumZero = 0;
+        int[] answer = {0,0};
         
-        while (!(s.equals("1"))) {
-            int len = s.length();
+        while(!s.equals("1")){
+            int originLen = s.length();
             s = s.replaceAll("0", "");
-            sumZero += len - s.length();
-
+            
+            answer[0]++;
+            answer[1] += (originLen - s.length());
+            
             s = Integer.toBinaryString(s.length());
-            cnt++;
         }
         
-        answer[0] = cnt;
-        answer[1] = sumZero;
         return answer;
     }
 }
