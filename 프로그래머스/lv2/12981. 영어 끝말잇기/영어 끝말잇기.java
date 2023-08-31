@@ -2,33 +2,22 @@ import java.util.HashSet;
 
 class Solution {
     public int[] solution(int n, String[] words) {
-        int[] answer = new int[2];
-        HashSet<String> set= new HashSet<>();
-        int i;
-
+        int[] answer = {0, 0};
+        HashSet<String> set = new HashSet<>();
+        
         set.add(words[0]);
 
-        for(i=1; i<words.length; i++){
-            if(words[i].length()==1) {
-                break;
-            }
-            if(words[i-1].charAt(words[i-1].length()-1)!=words[i].charAt(0)) {
-                break;
-            }
-            if(set.contains(words[i])) {
-                break;
+        for (int i = 1; i < words.length; i++) {
+            if (words[i].charAt(0) != words[i-1].charAt(words[i-1].length()-1) 
+                || set.contains(words[i])) {
+                
+                answer[0] = (i % n) + 1;
+                answer[1] = (i / n) + 1;
+                return answer;
             }
             set.add(words[i]);
         }
-
-        answer[0]=(i+1)%n==0?n:(i+1)%n;
-        answer[1]=(int)Math.ceil((double)(i+1)/n);
         
-        if(i==words.length) {
-            answer[0]=0;
-            answer[1]=0;
-        }
-
-        return answer;
+        return answer; 
     }
 }
