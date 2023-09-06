@@ -1,25 +1,23 @@
+import java.util.Arrays;
+
 class Solution {
     public int solution(int[] arr) {
-   
-        java.util.Arrays.sort(arr);
-        
-        int answer = arr[arr.length - 1];
+        int cnt = Arrays.stream(arr).max().getAsInt();
 
-        while (true) {
+        while(true) {
             boolean isLCM = true;
 
-            for (int num : arr) {
-                if (answer % num != 0) {
+            for (int num: arr) {
+                if (cnt % num != 0) {
                     isLCM = false;
                     break;
                 }
             }
-
+            
             if (isLCM) {
-                return answer;
+                return cnt;
             }
-
-            answer++;
+            cnt++;
         }
     }
 }
