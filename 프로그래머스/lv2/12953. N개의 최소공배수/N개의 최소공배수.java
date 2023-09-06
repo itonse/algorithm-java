@@ -2,12 +2,13 @@ import java.util.Arrays;
 
 class Solution {
     public int solution(int[] arr) {
-        int cnt = Arrays.stream(arr).max().getAsInt();
+        Arrays.sort(arr);
+        int cnt = arr[arr.length - 1];
 
-        while(true) {
+        while (true) {
             boolean isLCM = true;
 
-            for (int num: arr) {
+            for (int num : arr) {
                 if (cnt % num != 0) {
                     isLCM = false;
                     break;
