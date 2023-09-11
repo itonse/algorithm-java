@@ -3,16 +3,14 @@ class Solution {
         StringBuilder answer = new StringBuilder();
 
         for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            
-            if (c == ' ') { 
-                answer.append(c);
-            } else if (c >= 'a' && c <= 'z') {
-                char changedChar = (char) ((c - 'a' + n) % 26 + 'a');
-                answer.append(changedChar);
-            } else if (c >= 'A' && c <= 'Z') { 
-                char changedChar = (char) ((c - 'A' + n) % 26 + 'A');
-                answer.append(changedChar);
+            char ch = s.charAt(i);
+
+            if (ch == ' ') {
+                answer.append(' ');
+            } else if ('a' <= ch && ch <= 'z') {
+                answer.append((char) ('a' + (ch + n - 'a') % 26));
+            } else if ('A' <= ch && ch <= 'Z') {
+                answer.append((char) ('A' + (ch + n - 'A') % 26));
             }
         }
 
