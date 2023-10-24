@@ -5,16 +5,15 @@ class Solution {
         int answer = 0;
 
         Arrays.sort(d);
-        
-        for (int i = 0; i < d.length; i++) {
-            budget -= d[i];
-            
+
+        while(budget > 0 && answer < d.length) {
+            budget -= d[answer];
+
             if (budget >= 0) {
                 answer++;
-            } else {
-                break;
             }
         }
+
         return answer;
     }
 }
