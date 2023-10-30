@@ -1,5 +1,4 @@
 import java.util.HashSet;
-import java.util.Arrays;
 
 class Solution {
     public static int[] solution(int[] numbers) {
@@ -11,9 +10,9 @@ class Solution {
             }
         }
 
-        int[] result = set.stream().mapToInt(Integer::intValue).toArray();
-        Arrays.sort(result);
-
-        return result;
+        return set.stream()
+                .mapToInt(Integer::intValue)
+                .sorted()
+                .toArray();
     }
 }
