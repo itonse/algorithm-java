@@ -2,29 +2,33 @@ class Solution {
     public int[] solution(int n, int m) {
         int[] answer = new int[2];
 
-        gcd(n, m, answer);
-        lcm(n, m, answer);
-
+        answer[0] = gcd(n, m);
+        answer[1] = lcm(n, m);
+        
         return answer;
     }
 
-    public void gcd(int n, int m, int[] ans) {   // 최대공약수
-        int min = Math.min(n, m);
-        for (int i = min; i >= 1; i--) {
-            if (n % i == 0 && m % i == 0) {
-                ans[0] = i;
-                break;
+    private int gcd(int n, int m) {
+        int cnt = Math.min(n, m);
+        while (cnt > 0) {
+            if (n % cnt == 0 && m % cnt == 0) {
+                return cnt;
+            } else {
+                cnt--;
             }
         }
+        return 0;
     }
 
-    public void lcm(int n, int m, int[] ans) {     // 최소공배수
-        int max = Math.max(n, m);
-        for (int i = max; i <= n * m; i++) {
-            if (i % n == 0 && i % m == 0) {
-                ans[1] = i;
-                break;
+    private int lcm(int n, int m) {
+        int cnt = Math.max(n, m);
+        while (cnt <= n * m) {
+            if (cnt % n == 0 && cnt % m == 0) {
+                return cnt;
+            } else {
+                cnt++;
             }
         }
+        return 0;
     }
 }
