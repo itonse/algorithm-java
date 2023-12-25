@@ -3,7 +3,7 @@ import java.util.HashMap;
 class Solution {
     public String solution(String[] survey, int[] choices) {
         String[][] type = {{"R", "T"}, {"C", "F"}, {"J", "M"}, {"A", "N"}};
-        
+
         HashMap<String, Integer> map = new HashMap<>();
 
         String key;
@@ -17,10 +17,10 @@ class Solution {
                 map.put(key, map.getOrDefault(key, 0) + (choices[idx]) - 4);
             }
         }
-        
+
         return makeMBTI(map, type);
     }
-    
+
     private String makeMBTI(HashMap<String, Integer> map, String[][] type) {
         StringBuilder sb = new StringBuilder();
 
@@ -28,11 +28,7 @@ class Solution {
             int value1 = map.getOrDefault(type[i][0], 0);
             int value2 = map.getOrDefault(type[i][1], 0);
 
-            if (value1 == value2) {
-                sb.append(type[i][0].compareTo(type[i][1]) < 0 ? type[i][0] : type[i][1]);
-            } else {
-                sb.append(value1 > value2 ? type[i][0] : type[i][1]);
-            }
+            sb.append(value1 >= value2 ? type[i][0] : type[i][1]);
         }
 
         return sb.toString();
