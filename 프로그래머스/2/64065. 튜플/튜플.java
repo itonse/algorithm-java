@@ -1,5 +1,4 @@
 import java.util.*;
-import java.util.stream.Collectors;
 
 class Solution {
     public int[] solution(String s) {
@@ -10,20 +9,19 @@ class Solution {
 
         Arrays.sort(strArr, Comparator.comparingInt(String::length));
 
-        List<List<String>> lists = new ArrayList<>();
+        List<String> list = new ArrayList<>();
 
         for (String str : strArr) {
-            lists.add(Arrays.stream(str.split(",")).collect(Collectors.toList()));
+            list.add(str);
         }
 
-        int[] answer = new int[lists.get(lists.size() - 1).size()];
+        int[] answer = new int[list.get(list.size() - 1).split(",").length];
         int answerIdx = 0;
 
-        for (List<String> list : lists) {
-            for (String str : list) {
-                if (!set.contains(str)) {
-                    answer[answerIdx++] = Integer.parseInt(str);
-                    set.add(str);
+        for (String str : list) {
+            for (String element : str.split(",")) {
+                if (set.add(element)) {
+                    answer[answerIdx++] = Integer.parseInt(element);
                 }
             }
         }
