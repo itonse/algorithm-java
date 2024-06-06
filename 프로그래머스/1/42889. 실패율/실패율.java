@@ -1,4 +1,8 @@
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.LinkedList;
 
 class Solution {
     public int[] solution(int N, int[] stages) {
@@ -29,7 +33,6 @@ class Solution {
         for (int i = 2; i <= N; i++) {
             numerator = stagesLen - map.get(i).intValue();
             tmp -= numerator;
-            
             if (stagesLen > 0) {
                 map.replace(i, (double) numerator / stagesLen);
             } else {
@@ -40,11 +43,11 @@ class Solution {
 
         List<Map.Entry<Integer, Double>> entryList = new LinkedList<>(map.entrySet());
         entryList.sort((o1, o2) -> {
-            double result = o2.getValue().compareTo(o1.getValue());   // Double 값 비교를 위해 '-' 연산자 대신 .compareTo() 이용
-            if (result == 0) {
-                return o1.getKey().compareTo(o2.getKey());
+            int result = Double.compare(o2.getValue(), o1.getValue());
+            if (result == 0.0) {
+                return Integer.compare(o1.getKey(), o2.getKey());
             }
-            return (int) result;
+            return result;
         });
 
         int idx = 0;
