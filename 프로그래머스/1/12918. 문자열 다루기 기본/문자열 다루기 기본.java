@@ -1,18 +1,16 @@
 class Solution {
     public boolean solution(String s) {
-        boolean answer = true;
-
-        if (s.length() > 6 || s.length() < 4 || s.length() == 5) {
-            answer = false;
+        if (s.length() == 4 || s.length() == 6) {
+            for (char ch : s.toCharArray()) {
+                System.out.println(ch - '0');
+                if (!(0 <= ch - '0' && ch - '0' <= 9)) {
+                    return false;
+                }
+            }
+            
+            return true;
         }
         
-        for (char ch : s.toCharArray()) {
-            if (ch > '9' || ch < '0') {
-                answer = false;
-                break;
-            }
-        }
-
-        return answer;
+        return false;
     }
 }
