@@ -3,17 +3,18 @@ import java.util.Stack;
 class Solution {
     boolean solution(String s) {
         Stack stack = new Stack();
-
-        for (char ch : s.toCharArray()) {
-            if (ch == '(') {
-                stack.push(ch);
-            } else if (!stack.isEmpty()) {
-                stack.pop();
+        for (int idx = 0; idx < s.length(); idx++) {
+            if (s.charAt(idx) == '(') {
+                stack.push('(');
             } else {
-                return false;
+                if (stack.isEmpty()) {
+                    return false;
+                }
+                
+                stack.pop();
             }
         }
-
-        return stack.isEmpty();
+        
+        return stack.isEmpty() ? true : false;
     }
 }
