@@ -16,14 +16,12 @@ public class Main {
 
         Arrays.sort(arr);
 
-        int preSum = 0;
-        int curSum = 0;
+        int sum = 0;
 
         for (int i = 0; i < n; i++) {
-            curSum += preSum + arr[i];
-            preSum += arr[i];
+            sum = sum + arr[i] * (n - i);
         }
 
-        System.out.println(curSum);
+        System.out.println(sum);
     }
 }
