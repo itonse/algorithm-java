@@ -1,4 +1,3 @@
-import java.util.Stack;
 import java.io.*;
 
 public class Main {
@@ -6,29 +5,30 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         char[] arr = br.readLine().toCharArray();
-        Stack<Character> stack = new Stack<>();
 
         int layer = 0;
         int answer = 0;
-        
+        char pre = ' ';
+
         for (char ch : arr) {
             if (ch == '(') {
-                if (!stack.isEmpty() && stack.peek() == '(') {
+                if (pre == '(') {
                     layer++;
                 }
             }
 
             if (ch == ')') {
-                if (stack.peek() == ')') {
+                if (pre == ')') {
                     layer--;
                     answer++;
                 } else {
                     answer += layer;
                 }
             }
-            stack.push(ch);
+            
+            pre = ch;
         }
-        
+
         System.out.println(answer);
     }
 }
