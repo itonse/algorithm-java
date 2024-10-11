@@ -4,52 +4,39 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-        int n = Integer.parseInt(br.readLine());
-
-        LinkedList<Integer> queue = new LinkedList<>();
-
-        for (int i = 0; i < n; i++) {
-            StringTokenizer st = new StringTokenizer(br.readLine());
-            String command = st.nextToken();
-
-            switch(command) {
+        Deque<Integer> deque = new LinkedList<>();
+        
+        int count = Integer.parseInt(br.readLine());
+        
+        for (int i = 0; i < count; i++) {
+            String[] input = br.readLine().split(" ");
+            int result = 0;
+            
+            switch(input[0]) {
                 case "push":
-                    queue.add(Integer.parseInt(st.nextToken()));
-                    break;
-                case "front":
-                    if (queue.isEmpty()) {
-                        System.out.println("-1");
-                    } else {
-                        System.out.println(queue.peek());
-                    }
-                    break;
-                case "back":
-                    if (queue.isEmpty()) {
-                        System.out.println("-1");
-                    } else {
-                        System.out.println(queue.getLast());
-                    }
-                    break;
-                case "size":
-                    System.out.println(queue.size());
+                    deque.addLast(Integer.parseInt(input[1]));
                     break;
                 case "pop":
-                    if (queue.isEmpty()) {
-                        System.out.println("-1");
-                    } else {
-                        System.out.println(queue.poll());
-                    }
+                    result = deque.isEmpty() ? -1 : deque.removeFirst();
+                    break;
+                case "size":
+                    result = deque.size();
                     break;
                 case "empty":
-                    if (queue.isEmpty()) {
-                        System.out.println("1");
-                    } else {
-                        System.out.println("0");
-                    }
+                    result = deque.isEmpty() ? 1 : 0;
+                    break;
+                case "front":
+                    result = deque.isEmpty() ? -1 : deque.peekFirst();
+                    break;
+                case "back":
+                    result = deque.isEmpty() ? -1 : deque.peekLast();
                     break;
                 default:
                     break;
+            }
+            
+            if (!input[0].equals("push")) {
+                System.out.println(result);
             }
         }
     }
